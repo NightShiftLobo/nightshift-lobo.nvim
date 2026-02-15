@@ -12,7 +12,7 @@ function M.load()
     String = vim.tbl_extend("force", { fg = c.string }, styles.strings),
     Character = { fg = c.string },
     Number = { fg = c.constant },
-    Boolean = { fg = c.constant },
+    Boolean = { fg = c.magenta },
     Float = { fg = c.constant },
 
     Identifier = vim.tbl_extend("force", { fg = c.fg }, styles.variables),
@@ -27,7 +27,7 @@ function M.load()
     Exception = { fg = c.magenta },
 
     PreProc = { fg = c.accent },
-    Include = { fg = c.accent },
+    Include = { fg = c.cyan },
     Define = { fg = c.magenta },
     Macro = { fg = c.magenta },
     PreCondit = { fg = c.yellow },
@@ -40,7 +40,7 @@ function M.load()
     Special = { fg = c.teal },
     SpecialChar = { fg = c.teal },
     Tag = { fg = c.accent },
-    Delimiter = { fg = c.fg_soft },
+    Delimiter = { fg = c.cyan },
     SpecialComment = { fg = c.fg_dim, italic = true },
     Debug = { fg = c.red },
 
@@ -53,7 +53,7 @@ function M.load()
     yamlKey = { fg = c.accent },
     yamlAnchor = { fg = c.magenta },
     yamlAlias = { fg = c.magenta },
-    yamlDocumentStart = { fg = c.fg_soft },
+    yamlDocumentStart = { fg = c.magenta },
     yamlBlockMappingKey = { fg = c.accent },
   })
 end

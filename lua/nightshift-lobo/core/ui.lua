@@ -44,9 +44,12 @@ function M.load()
 
     -- Markdown in normal syntax mode (not Tree-sitter).
     markdownHeadingDelimiter = { fg = c.accent, bold = true },
-    markdownH1 = { fg = c.fg, bold = true },
-    markdownH2 = { fg = c.fg, bold = true },
-    markdownH3 = { fg = c.fg, bold = true },
+    markdownH1 = { fg = c.heading_1, bold = true },
+    markdownH2 = { fg = c.heading_2, bold = true },
+    markdownH3 = { fg = c.heading_3, bold = true },
+    markdownH4 = { fg = c.heading_4, bold = true },
+    markdownH5 = { fg = c.heading_5, bold = true },
+    markdownH6 = { fg = c.heading_6, bold = true },
     markdownCode = { fg = c.string },
     markdownCodeBlock = { fg = c.string },
     markdownLinkText = { fg = c.cyan, underline = true },

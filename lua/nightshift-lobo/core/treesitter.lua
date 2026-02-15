@@ -22,7 +22,7 @@ function M.load()
     ["@character.special"] = { fg = c.teal },
 
     ["@number"] = { fg = c.constant },
-    ["@boolean"] = { fg = c.constant },
+    ["@boolean"] = { fg = c.magenta },
     ["@float"] = { fg = c.constant },
 
     ["@annotation"] = { fg = c.magenta },
@@ -45,15 +45,15 @@ function M.load()
     ["@parameter.reference"] = { fg = c.fg_dim },
 
     ["@keyword"] = vim.tbl_extend("force", { fg = c.keyword }, styles.keywords),
-    ["@keyword.function"] = { fg = c.keyword },
-    ["@keyword.operator"] = { fg = c.keyword },
+    ["@keyword.function"] = { fg = c.accent },
+    ["@keyword.operator"] = { fg = c.yellow },
     ["@keyword.return"] = { fg = c.keyword },
     ["@keyword.import"] = { fg = c.keyword },
     ["@keyword.conditional"] = { fg = c.keyword },
     ["@keyword.repeat"] = { fg = c.keyword },
     ["@keyword.exception"] = { fg = c.magenta },
 
-    ["@operator"] = { fg = c.fg_dim },
+    ["@operator"] = { fg = c.cyan },
     ["@punctuation.delimiter"] = { fg = c.fg_soft },
     ["@punctuation.bracket"] = { fg = c.fg_soft },
     ["@punctuation.special"] = { fg = c.fg_soft },
@@ -78,10 +78,13 @@ function M.load()
     ["@tag.delimiter"] = { fg = c.fg_soft },
 
     -- Markdown
-    ["@markup.heading"] = { fg = c.fg, bold = true },
-    ["@markup.heading.1"] = { fg = c.fg, bold = true },
-    ["@markup.heading.2"] = { fg = c.fg, bold = true },
-    ["@markup.heading.3"] = { fg = c.fg, bold = true },
+    ["@markup.heading"] = { fg = c.heading_1, bold = true },
+    ["@markup.heading.1"] = { fg = c.heading_1, bold = true },
+    ["@markup.heading.2"] = { fg = c.heading_2, bold = true },
+    ["@markup.heading.3"] = { fg = c.heading_3, bold = true },
+    ["@markup.heading.4"] = { fg = c.heading_4, bold = true },
+    ["@markup.heading.5"] = { fg = c.heading_5, bold = true },
+    ["@markup.heading.6"] = { fg = c.heading_6, bold = true },
     ["@markup.italic"] = { fg = c.fg, italic = true },
     ["@markup.strong"] = { fg = c.fg, bold = true },
     ["@markup.strikethrough"] = { fg = c.fg_soft, strikethrough = true },
@@ -92,7 +95,7 @@ function M.load()
     ["@markup.link.url"] = { fg = c.teal, underline = true },
     ["@markup.raw"] = { fg = c.string },
     ["@markup.raw.block"] = { fg = c.string, bg = c.bg_alt },
-    ["@markup.list"] = { fg = c.accent },
+    ["@markup.list"] = { fg = c.heading_4 },
 
     -- YAML
     ["@property.yaml"] = { fg = c.accent },
@@ -104,8 +107,8 @@ function M.load()
     -- TypeScript / TSX
     ["@type.typescript"] = { fg = c.type },
     ["@type.builtin.typescript"] = { fg = c.type },
-    ["@keyword.typescript"] = { fg = c.keyword },
-    ["@keyword.operator.typescript"] = { fg = c.keyword },
+    ["@keyword.typescript"] = { fg = c.yellow },
+    ["@keyword.operator.typescript"] = { fg = c.cyan },
     ["@constructor.typescript"] = { fg = c.type },
     ["@property.typescript"] = { fg = c.property },
     ["@variable.member.typescript"] = { fg = c.property },

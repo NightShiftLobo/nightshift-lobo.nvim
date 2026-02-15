@@ -32,6 +32,14 @@ M.colors = {
   func = "#6C82D9",
   property = "#5FA8B8",
   info = "#56B6C2",
+
+  -- Markdown hierarchy accents.
+  heading_1 = "#6C82D9",
+  heading_2 = "#56B6C2",
+  heading_3 = "#6CBF84",
+  heading_4 = "#CFAE6A",
+  heading_5 = "#C25680",
+  heading_6 = "#B2A1FF",
 }
 
 return M
