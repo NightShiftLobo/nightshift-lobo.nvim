@@ -1,10 +1,13 @@
-local c = require("nightshift-lobo.palette").colors
+local palette = require("nightshift-lobo.palette")
 local util = require("nightshift-lobo.util")
-local styles = require("nightshift-lobo.config").options.styles
+local config = require("nightshift-lobo.config")
 
 local M = {}
 
 function M.load()
+  local cfg = config.options
+  local c = palette.get(cfg.flavour)
+  local styles = cfg.styles
   util.apply({
     ["@comment"] = vim.tbl_extend("force", { fg = c.comment }, styles.comments),
     ["@comment.documentation"] = { fg = c.fg_soft, italic = true },

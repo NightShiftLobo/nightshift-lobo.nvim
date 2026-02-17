@@ -1,10 +1,12 @@
-local c = require("nightshift-lobo.palette").colors
+local palette = require("nightshift-lobo.palette")
 local util = require("nightshift-lobo.util")
-local cfg = require("nightshift-lobo.config").options
+local config = require("nightshift-lobo.config")
 
 local M = {}
 
 function M.load()
+  local cfg = config.options
+  local c = palette.get(cfg.flavour)
   local normal_bg = cfg.transparent and "NONE" or c.bg
 
   util.apply({

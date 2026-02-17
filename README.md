@@ -53,7 +53,9 @@ return {
     "NightShiftLobo/nightshift-lobo.nvim",
     lazy = false,
     config = function()
-      require("nightshift-lobo").setup()
+      require("nightshift-lobo").setup({
+        flavour = "eclipse", -- eclipse | shadow | obsidian | dawn
+      })
       require("nightshift-lobo").load()
     end,
   },
@@ -106,9 +108,24 @@ Project structure:
 nightshift-lobo.nvim/
 ├── lua/nightshift-lobo/
 │   ├── init.lua
-│   ├── palette.lua
-│   ├── highlights.lua
-│   └── integrations.lua
+│   ├── config.lua
+│   ├── util.lua
+│   ├── palette/
+│   │   ├── init.lua
+│   │   ├── eclipse.lua
+│   │   ├── shadow.lua
+│   │   ├── obsidian.lua
+│   │   └── dawn.lua
+│   ├── core/
+│   │   ├── editor.lua
+│   │   ├── ui.lua
+│   │   ├── syntax.lua
+│   │   ├── treesitter.lua
+│   │   └── lsp.lua
+│   └── integrations/
+│       ├── telescope.lua
+│       ├── cmp.lua
+│       └── gitsigns.lua
 └── colors/nightshift-lobo.lua
 ```
 

@@ -1,6 +1,7 @@
 local M = {}
 
 M.options = {
+  flavour = "eclipse",
   transparent = false,
   dim_inactive = false,
   styles = {
@@ -12,8 +13,19 @@ M.options = {
   },
 }
 
+local valid_flavours = {
+  eclipse = true,
+  shadow = true,
+  obsidian = true,
+  dawn = true,
+}
+
 function M.set(opts)
-  M.options = vim.tbl_deep_extend("force", M.options, opts or {})
+  local merged = vim.tbl_deep_extend("force", M.options, opts or {})
+  if not valid_flavours[merged.flavour] then
+    merged.flavour = "eclipse"
+  end
+  M.options = merged
 end
 
 return M

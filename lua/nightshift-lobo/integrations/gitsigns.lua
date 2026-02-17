@@ -1,9 +1,11 @@
-local c = require("nightshift-lobo.palette").colors
+local palette = require("nightshift-lobo.palette")
 local util = require("nightshift-lobo.util")
+local config = require("nightshift-lobo.config")
 
 local M = {}
 
 function M.load()
+  local c = palette.get(config.options.flavour)
   util.apply({
     GitSignsAdd = { fg = c.green },
     GitSignsChange = { fg = c.yellow },
