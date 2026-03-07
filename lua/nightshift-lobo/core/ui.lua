@@ -8,24 +8,24 @@ function M.load()
   local cfg = config.options
   local c = palette.get(cfg.flavour)
   local normal_bg = cfg.transparent and c.none or c.bg
-  local float_bg = cfg.transparent and c.none or c.mantle
-  local menu_bg = cfg.transparent and c.none or c.mantle
+  local float_bg = cfg.transparent and c.none or c.bg_alt
+  local menu_bg = cfg.transparent and c.none or c.bg_alt
 
   util.apply({
     NormalFloat = { fg = c.text, bg = float_bg },
-    FloatBorder = { fg = c.overlay0, bg = float_bg },
+    FloatBorder = { fg = c.border, bg = float_bg },
     FloatTitle = { fg = c.bg, bg = c.accent, bold = true },
-    FloatShadow = { bg = c.overlay0, blend = 80 },
-    FloatShadowThrough = { bg = c.overlay0, blend = 100 },
+    FloatShadow = { bg = c.border, blend = 80 },
+    FloatShadowThrough = { bg = c.border, blend = 100 },
 
-    Pmenu = { fg = c.overlay2, bg = menu_bg },
+    Pmenu = { fg = c.fg_dim, bg = menu_bg },
     PmenuSel = { fg = c.text, bg = c.surface, bold = true },
     PmenuMatch = { fg = c.text, bold = true },
     PmenuMatchSel = { fg = c.accent, bg = c.surface, bold = true },
-    PmenuExtra = { fg = c.overlay0 },
-    PmenuExtraSel = { fg = c.overlay0, bg = c.surface, bold = true },
+    PmenuExtra = { fg = c.border },
+    PmenuExtraSel = { fg = c.border, bg = c.surface, bold = true },
     PmenuSbar = { bg = c.surface },
-    PmenuThumb = { bg = c.overlay0 },
+    PmenuThumb = { bg = c.border },
 
     WildMenu = { fg = c.text, bg = c.surface },
 
@@ -46,8 +46,8 @@ function M.load()
     SpellLocal = { undercurl = true, sp = c.blue },
     SpellRare = { undercurl = true, sp = c.green },
 
-    MsgArea = { fg = c.subtext0, bg = normal_bg },
-    MsgSeparator = { fg = c.overlay0, bg = normal_bg },
+    MsgArea = { fg = c.fg_dim, bg = normal_bg },
+    MsgSeparator = { fg = c.border, bg = normal_bg },
     Substitute = { fg = c.bg, bg = c.pink },
 
     markdownHeadingDelimiter = { fg = c.accent, bold = true },

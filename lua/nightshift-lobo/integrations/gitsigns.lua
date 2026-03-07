@@ -16,7 +16,7 @@ function M.load()
     GitSignsTopdelete = { fg = c.red },
     GitSignsChangedelete = { fg = c.yellow },
 
-    GitSignsCurrentLineBlame = { fg = c.overlay0, italic = true },
+    GitSignsCurrentLineBlame = { fg = c.border, italic = true },
 
     GitSignsAddPreview = transparent and { fg = c.green, bg = c.none } or { link = "DiffAdd" },
     GitSignsDeletePreview = transparent and { fg = c.red, bg = c.none } or { link = "DiffDelete" },

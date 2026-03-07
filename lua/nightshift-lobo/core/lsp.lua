@@ -7,7 +7,7 @@ local M = {}
 function M.load()
   local cfg = config.options
   local c = palette.get(cfg.flavour)
-  local virtual_text_bg = cfg.transparent and c.none or c.mantle
+  local virtual_text_bg = cfg.transparent and c.none or c.bg_alt
 
   util.apply({
     DiagnosticError = { fg = c.red },
@@ -39,17 +39,17 @@ function M.load()
     DiagnosticUnderlineInfo = { undercurl = true, sp = c.info },
     DiagnosticUnderlineHint = { undercurl = true, sp = c.hint },
     DiagnosticUnderlineOk = { undercurl = true, sp = c.green },
-    DiagnosticDeprecated = { fg = c.overlay1, strikethrough = true },
-    DiagnosticUnnecessary = { fg = c.overlay1, italic = true },
+    DiagnosticDeprecated = { fg = c.fg_soft, strikethrough = true },
+    DiagnosticUnnecessary = { fg = c.fg_soft, italic = true },
 
     LspReferenceText = { bg = c.surface },
     LspReferenceRead = { bg = c.surface },
     LspReferenceWrite = { bg = c.surface_alt },
 
-    LspCodeLens = { fg = c.overlay0 },
-    LspCodeLensSeparator = { fg = c.overlay0 },
+    LspCodeLens = { fg = c.border },
+    LspCodeLensSeparator = { fg = c.border },
     LspSignatureActiveParameter = { fg = c.accent, bg = c.surface, bold = true },
-    LspInlayHint = { fg = c.overlay1, bg = virtual_text_bg },
+    LspInlayHint = { fg = c.fg_soft, bg = virtual_text_bg },
     LspInfoBorder = { link = "FloatBorder" },
 
     LspDiagnosticsDefaultError = { fg = c.red },
@@ -93,7 +93,7 @@ function M.load()
     ["@lsp.type.typeParameter"] = { link = "@type" },
     ["@lsp.type.variable"] = { link = "@variable" },
 
-    ["@lsp.mod.deprecated"] = { strikethrough = true, fg = c.overlay1 },
+    ["@lsp.mod.deprecated"] = { strikethrough = true, fg = c.fg_soft },
     ["@lsp.mod.readonly"] = { fg = c.fg },
     ["@lsp.mod.defaultLibrary"] = { fg = c.constant },
     ["@lsp.typemod.class.defaultLibrary"] = { link = "@type.builtin" },

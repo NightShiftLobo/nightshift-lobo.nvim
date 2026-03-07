@@ -8,7 +8,7 @@ A focused editor theme with four flavours:
 - `obsidian`
 - `dawn`
 
-The current build keeps the NightShift UI identity while using a fuller, Catppuccin-inspired semantic highlight layout tuned to the NightShift palette.
+The current build keeps the NightShift UI identity while using a fuller NightShift-native semantic highlight layout tuned to the homepage palette.
 
 ## Features
 
@@ -32,8 +32,8 @@ NightShift Lobo now uses a clearer role-based syntax lane model:
 - plain variables: neutral foreground
 - properties and fields: teal
 - functions and methods: blue, italic
-- keywords and control flow: purple
-- types, classes, interfaces, enums: yellow, italic
+- keywords and control flow: yellow
+- types, classes, interfaces, enums: purple, italic
 - decorators and macros: warm orange
 - builtins and special self-like identifiers: red accent
 - punctuation: subdued secondary foreground, with operators on soft blue

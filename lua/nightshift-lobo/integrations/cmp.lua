@@ -7,11 +7,11 @@ local M = {}
 function M.load()
   local c = palette.get(config.options.flavour)
   util.apply({
-    CmpDocumentation = { fg = c.text, bg = c.mantle },
-    CmpDocumentationBorder = { fg = c.overlay0, bg = c.mantle },
+    CmpDocumentation = { fg = c.text, bg = c.bg_alt },
+    CmpDocumentationBorder = { fg = c.border, bg = c.bg_alt },
 
-    CmpItemAbbr = { fg = c.overlay2 },
-    CmpItemAbbrDeprecated = { fg = c.overlay0, strikethrough = true },
+    CmpItemAbbr = { fg = c.fg_dim },
+    CmpItemAbbrDeprecated = { fg = c.border, strikethrough = true },
     CmpItemAbbrMatch = { fg = c.text, bold = true },
     CmpItemAbbrMatchFuzzy = { fg = c.text, bold = true },
 
@@ -19,7 +19,7 @@ function M.load()
     CmpItemMenu = { fg = c.text },
 
     CmpItemKindText = { fg = c.teal },
-    CmpItemKindVariable = { fg = c.flamingo },
+    CmpItemKindVariable = { fg = c.red },
     CmpItemKindValue = { fg = c.peach },
     CmpItemKindProperty = { fg = c.property },
     CmpItemKindField = { fg = c.property },
@@ -42,7 +42,7 @@ function M.load()
     CmpItemKindConstant = { fg = c.peach },
     CmpItemKindEnum = { fg = c.green },
 
-    CmpItemKindSnippet = { fg = c.mauve },
+    CmpItemKindSnippet = { fg = c.purple },
     CmpItemKindFile = { fg = c.accent },
     CmpItemKindFolder = { fg = c.accent },
     CmpItemKindReference = { fg = c.red },
