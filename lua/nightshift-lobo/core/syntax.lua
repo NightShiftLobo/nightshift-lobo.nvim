@@ -4,54 +4,100 @@ local config = require("nightshift-lobo.config")
 
 local M = {}
 
+local function style(base, extra)
+  return vim.tbl_extend("force", base, extra or {})
+end
+
 function M.load()
   local cfg = config.options
   local c = palette.get(cfg.flavour)
   local styles = cfg.styles
+  local type_style = styles.types or { italic = true }
 
   util.apply({
-    Comment = vim.tbl_extend("force", { fg = c.comment }, styles.comments),
+    Comment = style({ fg = c.comment }, styles.comments),
+    SpecialComment = { fg = c.decorator },
 
     Constant = { fg = c.constant },
-    String = vim.tbl_extend("force", { fg = c.string }, styles.strings),
-    Character = { fg = c.string },
-    Number = { fg = c.constant },
-    Boolean = { fg = c.constant },
-    Float = { fg = c.constant },
+    String = style({ fg = c.string }, styles.strings),
+    Character = { fg = c.teal },
+    Number = style({ fg = c.constant }, styles.numbers),
+    Boolean = style({ fg = c.constant }, styles.booleans),
+    Float = style({ fg = c.constant }, styles.numbers),
 
-    Identifier = vim.tbl_extend("force", { fg = c.fg }, styles.variables),
-    Function = vim.tbl_extend("force", { fg = c.func }, styles.functions),
+    Identifier = style({ fg = c.text }, styles.variables),
+    Function = style({ fg = c.func }, styles.functions),
 
-    Statement = vim.tbl_extend("force", { fg = c.keyword }, styles.keywords),
-    Conditional = vim.tbl_extend("force", { fg = c.keyword }, styles.keywords),
-    Repeat = vim.tbl_extend("force", { fg = c.keyword }, styles.keywords),
-    Label = { fg = c.accent },
-    Operator = { fg = c.punctuation },
-    Keyword = vim.tbl_extend("force", { fg = c.keyword }, styles.keywords),
-    Exception = { fg = c.keyword },
+    Statement = style({ fg = c.keyword }, styles.keywords),
+    Conditional = style({ fg = c.keyword }, styles.keywords),
+    Repeat = style({ fg = c.keyword }, styles.keywords),
+    Label = { fg = c.sky },
+    Operator = style({ fg = c.operator }, styles.operators),
+    Keyword = style({ fg = c.keyword }, styles.keywords),
+    Exception = style({ fg = c.keyword }, styles.keywords),
 
-    PreProc = { fg = c.type },
-    Include = { fg = c.type },
+    PreProc = { fg = c.decorator },
+    Include = style({ fg = c.keyword }, styles.keywords),
     Define = { fg = c.decorator },
     Macro = { fg = c.decorator },
-    PreCondit = { fg = c.type },
+    PreCondit = { fg = c.decorator },
 
-    Type = { fg = c.type, italic = true },
-    StorageClass = { fg = c.keyword },
-    Structure = { fg = c.type, italic = true },
-    Typedef = { fg = c.type, italic = true },
+    StorageClass = style({ fg = c.type }, type_style),
+    Structure = style({ fg = c.type }, type_style),
+    Type = style({ fg = c.type }, type_style),
+    Typedef = style({ fg = c.type }, type_style),
 
-    Special = { fg = c.property },
-    SpecialChar = { fg = c.property },
-    Tag = { fg = c.accent },
-    Delimiter = { fg = c.fg_soft },
-    SpecialComment = { fg = c.fg_dim, italic = true },
+    Special = { fg = c.pink },
+    SpecialChar = { fg = c.pink },
+    Tag = { fg = c.accent, bold = true },
+    Delimiter = { fg = c.overlay2 },
     Debug = { fg = c.red },
 
-    Underlined = { fg = c.accent, underline = true },
-    Ignore = { fg = c.fg_soft },
-    Error = { fg = c.red, bold = true },
-    Todo = { fg = c.bg, bg = c.type, bold = true },
+    Underlined = { fg = c.blue, underline = true },
+    Bold = { bold = true },
+    Italic = { italic = true },
+    Ignore = { fg = c.overlay0 },
+    Error = { fg = c.red },
+    Todo = { fg = c.bg, bg = c.mauve, bold = true },
+
+    qfLineNr = { fg = c.yellow },
+    qfFileName = { fg = c.blue },
+
+    diffOldFile = { fg = c.yellow },
+    diffNewFile = { fg = c.peach },
+    diffFile = { fg = c.blue },
+    diffLine = { fg = c.overlay0 },
+    diffIndexLine = { fg = c.teal },
+
+    healthError = { fg = c.red },
+    healthSuccess = { fg = c.green },
+    healthWarning = { fg = c.yellow },
+
+    GlyphPalette1 = { fg = c.red },
+    GlyphPalette2 = { fg = c.green },
+    GlyphPalette3 = { fg = c.yellow },
+    GlyphPalette4 = { fg = c.blue },
+    GlyphPalette6 = { fg = c.teal },
+    GlyphPalette7 = { fg = c.text },
+    GlyphPalette9 = { fg = c.red },
+
+    rainbow1 = { fg = c.rainbow1 },
+    rainbow2 = { fg = c.rainbow2 },
+    rainbow3 = { fg = c.rainbow3 },
+    rainbow4 = { fg = c.rainbow4 },
+    rainbow5 = { fg = c.rainbow5 },
+    rainbow6 = { fg = c.rainbow6 },
+
+    markdownHeadingDelimiter = { fg = c.peach, bold = true },
+    markdownCode = { fg = c.string },
+    markdownCodeBlock = { fg = c.string },
+    markdownLinkText = { fg = c.blue, underline = true },
+    markdownH1 = { fg = c.rainbow1, bold = true },
+    markdownH2 = { fg = c.rainbow2, bold = true },
+    markdownH3 = { fg = c.rainbow3, bold = true },
+    markdownH4 = { fg = c.rainbow4, bold = true },
+    markdownH5 = { fg = c.rainbow5, bold = true },
+    markdownH6 = { fg = c.rainbow6, bold = true },
 
     yamlKey = { fg = c.accent },
     yamlAnchor = { fg = c.keyword },

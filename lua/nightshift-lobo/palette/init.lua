@@ -34,8 +34,11 @@ function M.background(flavour)
   return flavour_types[normalized]
 end
 
-local function resolve_palette(raw)
+local function resolve_palette(raw, flavour)
+  local is_light = flavour_types[flavour] == "light"
+
   return {
+    none = "NONE",
     bg_0 = raw.bg_0,
     bg_1 = raw.bg_1,
     bg_2 = raw.bg_2,
@@ -62,40 +65,71 @@ local function resolve_palette(raw)
     error = raw.error,
     info = raw.info,
     diff_add = raw.diff_add,
+    diff_change = raw.selection,
+    diff_delete = is_light and raw.bg_2 or raw.bg_1,
 
     bg = raw.bg_0,
+    base = raw.bg_0,
     bg_alt = raw.bg_1,
+    mantle = raw.bg_1,
+    crust = is_light and raw.bg_4 or raw.bg_1,
     surface = raw.bg_2,
+    surface0 = raw.bg_2,
     surface_alt = raw.bg_3,
+    surface1 = raw.bg_3,
+    surface_hi = raw.bg_4,
+    surface2 = raw.bg_4,
+    overlay0 = raw.border,
+    overlay1 = raw.fg_muted,
+    overlay2 = raw.fg_secondary,
     fg = raw.fg_primary,
+    text = raw.fg_primary,
     fg_dim = raw.fg_secondary,
+    subtext0 = raw.fg_secondary,
     fg_soft = raw.fg_muted,
+    subtext1 = raw.fg_muted,
     accent = raw.blue,
+    accent_alt = raw.blue_soft,
+    rosewater = raw.orange,
+    flamingo = raw.red,
+    mauve = raw.purple,
+    peach = raw.orange,
+    lavender = raw.blue_soft,
+    sky = raw.cyan,
+    sapphire = raw.cyan,
     magenta = raw.purple,
-    pink = raw.orange,
+    pink = raw.purple,
     string = raw.green,
     constant = raw.orange,
-    hint = raw.purple,
+    hint = raw.cyan,
     keyword = raw.purple,
     type = raw.yellow,
     func = raw.blue,
-    property = raw.teal,
+    property = raw.cyan,
     decorator = raw.orange,
     builtin = raw.red,
-    punctuation = raw.teal,
+    operator = raw.blue_soft,
+    punctuation = raw.fg_secondary,
+    cursorline = raw.bg_1,
     heading_1 = raw.red,
     heading_2 = raw.orange,
     heading_3 = raw.yellow,
     heading_4 = raw.green,
     heading_5 = raw.cyan,
     heading_6 = raw.blue_soft,
+    rainbow1 = raw.red,
+    rainbow2 = raw.orange,
+    rainbow3 = raw.yellow,
+    rainbow4 = raw.green,
+    rainbow5 = raw.cyan,
+    rainbow6 = raw.blue_soft,
   }
 end
 
 function M.get(flavour)
   local normalized = M.normalize_flavour(flavour)
   if not resolved_cache[normalized] then
-    resolved_cache[normalized] = resolve_palette(raw_palettes[normalized])
+    resolved_cache[normalized] = resolve_palette(raw_palettes[normalized], normalized)
   end
 
   return resolved_cache[normalized]

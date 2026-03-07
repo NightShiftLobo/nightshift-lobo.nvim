@@ -59,6 +59,10 @@ function M.load()
   vim.o.background = palette.background(flavour)
   vim.g.colors_name = "nightshift-lobo"
 
+  if config.term_colors then
+    require("nightshift-lobo.core.terminal").load()
+  end
+
   require("nightshift-lobo.core.editor").load()
   require("nightshift-lobo.core.ui").load()
   require("nightshift-lobo.core.syntax").load()

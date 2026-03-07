@@ -7,44 +7,49 @@ local M = {}
 function M.load()
   local cfg = config.options
   local c = palette.get(cfg.flavour)
-  local normal_bg = cfg.transparent and "NONE" or c.bg
+  local normal_bg = cfg.transparent and c.none or c.bg
+  local float_bg = cfg.transparent and c.none or c.mantle
+  local menu_bg = cfg.transparent and c.none or c.mantle
 
   util.apply({
-    NormalFloat = { fg = c.fg, bg = c.surface },
-    FloatBorder = { fg = c.border, bg = c.surface },
-    FloatTitle = { fg = c.accent, bg = c.surface, bold = true },
+    NormalFloat = { fg = c.text, bg = float_bg },
+    FloatBorder = { fg = c.overlay0, bg = float_bg },
+    FloatTitle = { fg = c.bg, bg = c.accent, bold = true },
+    FloatShadow = { bg = c.overlay0, blend = 80 },
+    FloatShadowThrough = { bg = c.overlay0, blend = 100 },
 
-    Pmenu = { fg = c.fg, bg = c.surface },
-    PmenuSel = { fg = c.fg, bg = c.surface_alt },
-    PmenuSbar = { bg = c.bg_alt },
-    PmenuThumb = { bg = c.selection },
+    Pmenu = { fg = c.overlay2, bg = menu_bg },
+    PmenuSel = { fg = c.text, bg = c.surface, bold = true },
+    PmenuMatch = { fg = c.text, bold = true },
+    PmenuMatchSel = { fg = c.accent, bg = c.surface, bold = true },
+    PmenuExtra = { fg = c.overlay0 },
+    PmenuExtraSel = { fg = c.overlay0, bg = c.surface, bold = true },
+    PmenuSbar = { bg = c.surface },
+    PmenuThumb = { bg = c.overlay0 },
 
-    WildMenu = { fg = c.fg, bg = c.surface_alt },
-    TabLine = { fg = c.fg_soft, bg = c.bg_alt },
-    TabLineSel = { fg = c.fg, bg = c.surface, bold = true },
-    TabLineFill = { fg = c.fg_soft, bg = c.bg_alt },
+    WildMenu = { fg = c.text, bg = c.surface },
 
-    CursorLineFold = { fg = c.fg_dim, bg = c.bg_alt },
-    CursorLineSign = { fg = c.fg_dim, bg = c.bg_alt },
+    DiffAdd = { fg = c.green, bg = c.diff_add },
+    DiffChange = { fg = c.blue_soft, bg = c.diff_change },
+    DiffDelete = { fg = c.red, bg = c.diff_delete },
+    DiffText = { fg = c.accent, bg = c.surface_alt, bold = true },
 
-    NormalSB = { fg = c.fg_dim, bg = c.surface },
-    SignColumnSB = { fg = c.fg_soft, bg = c.surface },
-
-    DiffAdd = { fg = c.green, bg = c.bg_alt },
-    DiffChange = { fg = c.yellow, bg = c.bg_alt },
-    DiffDelete = { fg = c.red, bg = c.bg_alt },
-    DiffText = { fg = c.accent, bg = c.surface_alt },
+    Added = { fg = c.green },
+    Changed = { fg = c.blue_soft },
+    Removed = { fg = c.red },
+    diffAdded = { fg = c.green },
+    diffRemoved = { fg = c.red },
+    diffChanged = { fg = c.blue_soft },
 
     SpellBad = { undercurl = true, sp = c.red },
     SpellCap = { undercurl = true, sp = c.yellow },
-    SpellLocal = { undercurl = true, sp = c.cyan },
-    SpellRare = { undercurl = true, sp = c.hint },
+    SpellLocal = { undercurl = true, sp = c.blue },
+    SpellRare = { undercurl = true, sp = c.green },
 
-    MsgArea = { fg = c.fg_dim, bg = normal_bg },
-    MsgSeparator = { fg = c.border, bg = normal_bg },
+    MsgArea = { fg = c.subtext0, bg = normal_bg },
+    MsgSeparator = { fg = c.overlay0, bg = normal_bg },
     Substitute = { fg = c.bg, bg = c.pink },
 
-    -- Markdown in normal syntax mode (not Tree-sitter).
     markdownHeadingDelimiter = { fg = c.accent, bold = true },
     markdownH1 = { fg = c.heading_1, bold = true },
     markdownH2 = { fg = c.heading_2, bold = true },
@@ -54,8 +59,8 @@ function M.load()
     markdownH6 = { fg = c.heading_6, bold = true },
     markdownCode = { fg = c.string },
     markdownCodeBlock = { fg = c.string },
-    markdownLinkText = { fg = c.cyan, underline = true },
-    markdownUrl = { fg = c.teal, underline = true },
+    markdownLinkText = { fg = c.blue, underline = true },
+    markdownUrl = { fg = c.accent, underline = true },
   })
 end
 

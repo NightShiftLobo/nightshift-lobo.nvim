@@ -4,12 +4,18 @@ M.options = {
   flavour = "eclipse",
   transparent = false,
   dim_inactive = false,
+  term_colors = true,
   styles = {
     comments = { italic = true },
     keywords = { italic = false, bold = false },
     functions = { italic = true, bold = false },
     strings = { italic = false },
     variables = { italic = false },
+    numbers = {},
+    booleans = {},
+    properties = {},
+    types = { italic = true },
+    operators = {},
   },
 }
 

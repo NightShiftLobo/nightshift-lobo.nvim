@@ -8,7 +8,7 @@ A focused editor theme with four flavours:
 - `obsidian`
 - `dawn`
 
-The current build keeps the NightShift UI identity while using a more complete syntax model aligned with the VSCode theme.
+The current build keeps the NightShift UI identity while using a fuller, Catppuccin-inspired semantic highlight layout tuned to the NightShift palette.
 
 ## Features
 
@@ -20,6 +20,7 @@ The current build keeps the NightShift UI identity while using a more complete s
 - `nvim-cmp` integration
 - `gitsigns` integration
 - Terminal and editor UI groups
+- ANSI terminal colors
 
 ## Syntax Philosophy
 
@@ -35,6 +36,7 @@ NightShift Lobo now uses a clearer role-based syntax lane model:
 - types, classes, interfaces, enums: yellow, italic
 - decorators and macros: warm orange
 - builtins and special self-like identifiers: red accent
+- punctuation: subdued secondary foreground, with operators on soft blue
 
 Markdown hierarchy follows the same system:
 
@@ -72,12 +74,18 @@ require("nightshift-lobo").setup({
   flavour = "eclipse",
   transparent = false,
   dim_inactive = false,
+  term_colors = true,
   styles = {
     comments = { italic = true },
     keywords = { italic = false, bold = false },
     functions = { italic = true, bold = false },
     strings = { italic = false },
     variables = { italic = false },
+    numbers = {},
+    booleans = {},
+    properties = {},
+    types = { italic = true },
+    operators = {},
   },
 })
 

@@ -7,22 +7,23 @@ local M = {}
 function M.load()
   local c = palette.get(config.options.flavour)
   util.apply({
-    CmpDocumentation = { fg = c.fg, bg = c.surface },
-    CmpDocumentationBorder = { fg = c.border, bg = c.surface },
+    CmpDocumentation = { fg = c.text, bg = c.mantle },
+    CmpDocumentationBorder = { fg = c.overlay0, bg = c.mantle },
 
-    CmpItemAbbr = { fg = c.fg_dim },
-    CmpItemAbbrDeprecated = { fg = c.fg_soft, strikethrough = true },
-    CmpItemAbbrMatch = { fg = c.accent, bold = true },
-    CmpItemAbbrMatchFuzzy = { fg = c.accent },
+    CmpItemAbbr = { fg = c.overlay2 },
+    CmpItemAbbrDeprecated = { fg = c.overlay0, strikethrough = true },
+    CmpItemAbbrMatch = { fg = c.text, bold = true },
+    CmpItemAbbrMatchFuzzy = { fg = c.text, bold = true },
 
-    CmpItemMenu = { fg = c.fg_soft },
+    CmpItemKind = { fg = c.blue },
+    CmpItemMenu = { fg = c.text },
 
-    CmpItemKindText = { fg = c.fg_dim },
-    CmpItemKindVariable = { fg = c.fg },
-    CmpItemKindValue = { fg = c.fg },
+    CmpItemKindText = { fg = c.teal },
+    CmpItemKindVariable = { fg = c.flamingo },
+    CmpItemKindValue = { fg = c.peach },
     CmpItemKindProperty = { fg = c.property },
     CmpItemKindField = { fg = c.property },
-    CmpItemKindEnumMember = { fg = c.property },
+    CmpItemKindEnumMember = { fg = c.red },
 
     CmpItemKindFunction = { fg = c.func },
     CmpItemKindMethod = { fg = c.func },
@@ -30,23 +31,24 @@ function M.load()
     CmpItemKindConstructor = { fg = c.type },
     CmpItemKindClass = { fg = c.type },
     CmpItemKindInterface = { fg = c.type },
-    CmpItemKindStruct = { fg = c.type },
-    CmpItemKindTypeParameter = { fg = c.type },
-    CmpItemKindModule = { fg = c.type },
-    CmpItemKindUnit = { fg = c.type },
+    CmpItemKindStruct = { fg = c.blue },
+    CmpItemKindTypeParameter = { fg = c.blue },
+    CmpItemKindModule = { fg = c.blue },
+    CmpItemKindUnit = { fg = c.green },
 
-    CmpItemKindKeyword = { fg = c.keyword },
-    CmpItemKindOperator = { fg = c.punctuation },
+    CmpItemKindKeyword = { fg = c.red },
+    CmpItemKindOperator = { fg = c.blue },
 
-    CmpItemKindConstant = { fg = c.constant },
-    CmpItemKindEnum = { fg = c.type },
+    CmpItemKindConstant = { fg = c.peach },
+    CmpItemKindEnum = { fg = c.green },
 
-    CmpItemKindSnippet = { fg = c.string },
+    CmpItemKindSnippet = { fg = c.mauve },
     CmpItemKindFile = { fg = c.accent },
     CmpItemKindFolder = { fg = c.accent },
-    CmpItemKindReference = { fg = c.blue_soft },
-    CmpItemKindEvent = { fg = c.decorator },
-    CmpItemKindColor = { fg = c.decorator },
+    CmpItemKindReference = { fg = c.red },
+    CmpItemKindEvent = { fg = c.blue },
+    CmpItemKindColor = { fg = c.red },
+    CmpItemKindCopilot = { fg = c.teal },
   })
 end
 
